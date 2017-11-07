@@ -10,6 +10,7 @@
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Random;
 
 public class JavaRef {
     
@@ -51,14 +52,52 @@ public class JavaRef {
 //        displayBinary(b);
         
         // Chapter 06: Value Methods
-        System.out.println(basicReturnValues(23.4));
-        double vtest = basicReturnValues(23);
-        System.out.println(vtest);
-        
-        System.out.println(absoluteValue(-3));
-        
-        // Chapter 07: Loops
+//        System.out.println(basicReturnValues(23.4));
+//        double vtest = basicReturnValues(23);
+//        System.out.println(vtest);
+//        
+//        System.out.println(absoluteValue(-3));
+//        System.out.println(distance(23,45,67,21));
+//        System.out.println(isSingleDigit(3));
+//        zTest();
+//        System.out.println("prod = "+prod(1, 4));
+//        System.out.println(fibonacci(13));
+//        fib();
+//        System.out.println(ackermann(1, 15));
 
+        // Chapter 07: Loops
+//        whileLoop(3);
+        
+//        System.out.println("example2");
+//        example2();
+//        System.out.println("example3");
+//        example3();
+//        System.out.println("example4");
+//        example4();
+//        System.out.println("example5");
+//        example5();
+//        System.out.println("printRow");
+//        printRow();
+//        System.out.println("printRow2");
+//        printRow2(6);
+//        System.out.println("printTable");
+//        printTable();
+//        System.out.println("printTable2");
+//        printTable2(6);
+//        System.out.println("printRow3");
+//        printRow3(6, 6);
+//        System.out.println("printTable3");
+//        printTable3(6);
+//        System.out.println("printRow4");
+//        printRow4(6, 12);
+//        System.out.println("printTable4");
+//        printTable4(6);
+//        addNumbers(in);
+//        scanDoubleOne(in);
+//        scanDouble2(in);
+          starTri();
+          starTriNum();
+          
         // Chapter 08: Arrays
 
         // Chapter 09: Strings and Things
@@ -108,7 +147,8 @@ public class JavaRef {
     /** Literals and Constants */
     public static void literalsConstants() {
         double cmPerInch = 2.54;
-        cm = inch * cmPerInch;
+        int inch = 100;
+        double cm = inch * cmPerInch;
         final double CM_PER_INCH = 2.54;
     }
 
@@ -300,7 +340,7 @@ public class JavaRef {
         double result = Math.log(x);
         System.out.println("The log of x is " + result);
     }
-    
+
     /** Validating input, s 5.7 */
     public static void validatingInput(double x) {
         if (x <= 0.0) {
@@ -310,7 +350,7 @@ public class JavaRef {
         double result = Math.log(x);
         System.out.println("The log of x is " + result);
     }
-    
+
     /** Scan Double, s 5.7 */
     public static void scanDouble(Scanner in, int b) {
         in.nextLine();  // read the newline
@@ -319,6 +359,7 @@ public class JavaRef {
         double x = in.nextDouble();
         validatingInput(x);
     }
+
     /** countdown, s 5.7 */
     public static void countdown(int n) {
         if (n == 0) {
@@ -352,4 +393,278 @@ public class JavaRef {
             return x;
         }
     }
+
+    /** Distance, s 6.02 */
+    public static double distance
+        (double x1, double y1, double x2, double y2) {
+        double dx = x2 - x1;
+        double dy = y2 - y1;
+        System.out.println("dx is " + dx);
+        System.out.println("dy is " + dy);
+        double dsquared = dx * dx + dy * dy;
+        System.out.println("dsquared is " + dsquared);
+        double result = Math.sqrt(dsquared);
+        return result;
+    }
+
+    /** Is Single Digit, s 6.05 */
+    public static boolean isSingleDigit(int x) {
+        return x > -10 && x < 10;
+    }
+
+    /** Z test, s 6.05 */
+    public static boolean zTest() {
+        int z = 3;
+        if (isSingleDigit(z)) {
+            System.out.println("z is small");
+            return true;
+        } else {
+            System.out.println("z is big");
+            return false;
+        }
+    }
+
+    /** prod, s 6.07 */
+    public static int prod(int m, int n) {
+        if (m == n) {
+            return n;
+        } else {
+            int recurse = prod(m, n - 1);
+            int result = n * recurse;
+            return result;
+        }
+    }
+
+    /** fibonacci, s 6.07 */
+    public static int fibonacci(int n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    /** fib, s 6.07 */
+    public static void fib() {
+        for(int i=1,f=0,n=0; n<15; n++) {
+            System.out.println(i = (f+(f+i)) - (f=f+i) );
+        }
+    }
+
+    /** Ackermann function, s 6.11 */
+    public static int ackermann(int m, int n) {
+        if (m < 0 || n < 0) {
+            throw new IllegalArgumentException("Non-negative args only!");
+        }
+
+        if (m == 0) {
+            return n + 1;
+        } else if (n == 0) {
+            return ackermann(m-1, 1); // Corrected!
+        } else {
+            // perforce (m > 0) && (n > 0)
+            return ackermann(m-1, ackermann(m,n-1));
+        }
+    }
+    
+    /** While Loop, s 6.11 */
+    public static void whileLoop(int n) {
+        // 1. Evaluate the condition, yielding true or false.
+        // 2. If the condition is false, skip the body and go to the next statement.
+        // 3. If the condition is true, execute the body and go back to step 1.
+
+        while (n > 0) {
+            System.out.println(n);
+            n = n - 1;
+        }
+        System.out.println("Blastoff!");
+    }
+
+    /** Example, s 7.11 */
+    public static void example2() {
+        int i = 1;
+        while (i < 10) {
+            double x = i;
+            System.out.println(x + "   " + Math.log(x) / Math.log(2));
+            i = i + 1;
+        }
+    }
+
+    /** Example, s 7.11 */
+    public static void example3() {
+        final double LOG2 = Math.log(2);
+        int i = 1;
+        while (i < 100) {
+            double x = i;
+            System.out.println(x + "   " + Math.log(x) / LOG2);
+            i = i * 2;
+        }
+    }
+
+    /** Example, s 7.11 */
+    public static void example4() {
+        int i = 1;
+        while (i <= 64) {
+            System.out.printf("%08d\n", 2 * i);
+            i = i + 1;
+        }
+        System.out.println();
+    }
+
+    /** Example, s 7.11 */
+    public static void printRow() {
+        int i = 1;
+        while (i <= 6) {
+            System.out.printf("%4d", 2 * i);
+            i = i + 1;
+        }
+        System.out.println();
+    }
+
+    /** Example, s 7.11 */
+    public static void printRow2(int n) {
+        int i = 1;
+        while (i <= 6) {
+            System.out.printf("%4d", n * i);
+            i = i + 1;
+        }
+        System.out.println();
+    }
+
+    /** Example, s 7.11 */
+    public static void example5() {
+        int i = 1;
+        while (i <= 6) {
+            printRow2(i);
+            i = i + 1;
+        }
+    }
+
+    /** Example, s 7.11 */
+    public static void printTable() {
+        int i = 1;
+        while (i <= 6) {
+            printRow2(i);
+            i = i + 1;
+        }
+    }
+
+    /** Example, s 7.11 */
+    public static void printTable2(int rows) {
+        int i = 1;
+        while (i <= rows) {
+            printRow2(i);
+            i = i + 1;
+        }
+    }
+
+    /** Example, s 7.11 */
+    public static void printRow3(int n, int cols) {
+        int i = 1;
+        while (i <= cols) {
+            System.out.printf("%4d", n * i);
+            i = i + 1;
+        }
+        System.out.println();
+    }
+
+    /** Example, s 7.11 */
+    public static void printTable3(int rows) {
+        int i = 1;
+        while (i <= rows) {
+            printRow3(i, rows);
+            i = i + 1;
+        }
+    }
+
+    /** Example, s 7.11 */
+    public static void printTable4(int rows) {
+        for (int i = 1; i <= rows; i = i + 1) {
+            printRow4(i, rows);
+        }
+    }
+
+    /** Example, s 7.11 */
+    public static void printRow4(int n, int cols) {
+        int i;
+        for (i = 1; i <= cols; i = i + 1) {
+            System.out.printf("%4d", n * i * i);
+        }
+        System.out.println(i);
+    }
+
+    /** Add numbers, s 7.7 */
+    public static void addNumbers(Scanner in) {
+        // Scanner in = new Scanner(System.in);
+        // in.nextLine();  // read the newline
+        int xx = -1;
+        int sum = 0;
+        while (xx != 0) {
+            System.out.print("Enter a number:");
+            xx = in.nextInt();
+            if (xx <= 0) {
+                continue;
+            }
+            System.out.println("Adding " + xx);
+            sum += xx;
+        }
+        System.out.println(sum);
+    }
+
+    /** Validate, s 7.7 */
+    public static double scanDoubleOne(Scanner in) {
+        boolean okay;
+        do {
+            System.out.print("Enter a number: ");
+            if (in.hasNextDouble()) {
+                okay = true;
+            } else {
+                okay = false;
+                String word = in.next();
+                System.err.println(word + " is not a number");
+            }
+        } while (!okay);
+        double x = in.nextDouble();
+        return x;
+    }
+
+    /** Validate, s 7.7 */
+    public static double scanDouble2(Scanner in) {
+        while (true) {
+            System.out.print("Enter a number: ");
+            if (in.hasNextDouble()) {
+                break;
+            }
+            String word = in.next();
+            System.err.println(word + " is not a number");
+        }
+        double x = in.nextDouble();
+        return x;
+    }
+
+    /** Validate, s 7.7 */
+    public static void starTri() {
+        for (int i = 0; i <= 7; i++) {
+            for (int j = 6; j >= i; j--) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    
+    /** Validate, s 7.7 */
+    public static void starTriNum() {
+        for (int i = 0; i <= 7; i++) {
+            for (int a = 1; a <= i; a++ ) {
+                System.out.print(a);
+            }
+            for (int j = 6; j >= i; j--) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+
+
+
 }
