@@ -30,7 +30,7 @@ public class JavaRef {
 //        basicInput();
 //        literalsConstants();
 //        formattingOutput();
-//        modulusOperator();
+//        modulusOperator(in);
 //        scannerBug();
 
         /** Chapter 04: Void Methods: */
@@ -45,7 +45,7 @@ public class JavaRef {
 //        System.out.println(checkPalindrome("racecar"));
 //        booleanFlag();
 //        chainingAndNesting();
-//        returnStatement(-34);
+        returnStatement(34);
 //        int b = 45;
 //        scanDouble(in,b);
 //        countdown(b);
@@ -104,7 +104,7 @@ public class JavaRef {
 //        gridArray();
 //        testArray();
 //        indexArray();
-        copyArray();
+//        copyArray();
         
         // Chapter 09: Strings and Things
 
@@ -140,14 +140,12 @@ public class JavaRef {
 
     /** Printing Variables */
     public static void basicArithmetic() {
-        String lastName = "Hooper";
-        System.out.println(lastName);
+        // TODO, Add stuff here.
     }
 
     /** Printing Variables */
     public static void basicInput() {
-        String lastName = "Hooper";
-        System.out.println(lastName);
+        // TODO, Add stuff here.
     }
 
     /** Literals and Constants */
@@ -172,12 +170,11 @@ public class JavaRef {
     }
 
     /** Modulus Operator */
-    public static void modulusOperator() {
+    public static void modulusOperator(Scanner in) {
         double cm;
         int feet, inches, remainder;
         final double CM_PER_INCH = 2.54;
         final int IN_PER_FOOT = 12;
-        Scanner in = new Scanner(System.in);
 
         // prompt the user and get the value
         System.out.print("Exactly how many cm? ");
