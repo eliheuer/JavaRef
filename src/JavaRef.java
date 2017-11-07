@@ -95,11 +95,17 @@ public class JavaRef {
 //        addNumbers(in);
 //        scanDoubleOne(in);
 //        scanDouble2(in);
-          starTri();
-          starTriNum();
+//          starTri();
+//          starTriNum();
           
         // Chapter 08: Arrays
-
+//        basicArray();
+//        sumArray();
+//        gridArray();
+//        testArray();
+//        indexArray();
+        copyArray();
+        
         // Chapter 09: Strings and Things
 
     }
@@ -664,7 +670,112 @@ public class JavaRef {
         }
     }
 
+    /** Array, s 8.0 */
+    public static void basicArray() {
+        // Number Array
+        int[] randArray = new int[9];
+        Random rand = new Random();
+        for (int i = 0; i < randArray.length; i++)
+            randArray[i] = rand.nextInt(100) + 1;
+        System.out.println(Arrays.toString(randArray));
+        Arrays.sort(randArray);
+        System.out.println(Arrays.toString(randArray));
+        // name Array
+        String[] nameArray = new String[] {"Eli", "Bill", "Bob", "Sam"};
+        System.out.println(Arrays.toString(nameArray));
+        Arrays.sort(nameArray);
+        System.out.println(Arrays.toString(nameArray));
+        int[] counts = new int[4];
+        counts[0] = 7; 
+        counts[1] = counts[0] * 2; 
+        counts[2]++; 
+        counts[3] -= 60;
+        System.out.println("New Array: " + Arrays.toString(counts));
+    }
 
+    /** Array, s 8.0 */
+    public static void sumArray() {
+        // sum Array
+        int[] sumArray = new int[9];
+        Random rand = new Random();
+        for (int i = 0; i < sumArray.length; i++)
+            sumArray[i] = rand.nextInt(100) + 1;
+        System.out.println("Array to sum: " + Arrays.toString(sumArray));
+        int sum = 0;
+        for(int num : sumArray) {
+            sum += num;
+        }
+        System.out.println("Sum of array elements is: "+sum); 
+    }
 
+    /** Array, s 8.0 */
+    public static void gridArray() {
+        // print grid
+        
+        int[] nums = {0,0,0,0,0,0,0,0,0,0};
+        int[] nums1 = {1,0,0,0,0,0,0,0,0,0};
+        for (int i = 0; i <= 9; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                   System.out.print(nums[j]+ " ");
+                }
+                System.out.println(" ");
+         }
+         for (int k = 0; k < nums1.length; k++) {
+             System.out.print(nums1[k]+ " ");
+         }
+         System.out.println(" ");
+    }
 
+    /** Array, s 8.0 */
+    public static void testArray() {
+        // Number Array
+        int value = 12;
+        int[] randArray = new int[15];
+        Random rand = new Random();
+        for (int i = 0; i < randArray.length; i++)
+            randArray[i] = rand.nextInt(100) + 1;
+        System.out.println(Arrays.toString(randArray));
+        System.out.print("Array contains 12: ");
+        System.out.println(containsX(randArray, value));
+    }
+
+    public static boolean containsX(int[] arr, int item) {
+        for (int n : arr) {
+           if (item == n) {
+              return true;
+           }
+        }
+        return false;
+     }
+
+    /** Array, s 8.0 */
+    public static void indexArray() {
+        int num1 = 34;
+        int num2 = 35;
+        int[] my_array = {234, num1, 76, num2, 36, 56};
+        System.out.println("Index position of 25 is: " + findIndex(my_array, num1));
+        System.out.println("Index position of 77 is: " + findIndex(my_array, num2));
+    }
+
+    public static int  findIndex (int[] my_array, int t) {
+        if (my_array == null) return -1;
+        int len = my_array.length;
+        int i = 0;
+        while (i < len) {
+            if (my_array[i] == t) return i;
+            else i=i+1;
+        }
+        return -1;
+    }
+
+    /** Array, s 8.0 */
+    public static void copyArray() {
+        int[] oldArray = {5, 4, 6, 1, 6, 5, 7, 8, 9};
+        int[] newArray = new int[9];     
+        System.out.println("Old Array: " + Arrays.toString(oldArray));
+        for(int i=0; i < oldArray.length; i++) {
+            newArray[i] = oldArray[i];
+        }
+        System.out.println("New Array: " + Arrays.toString(newArray));
+    }
 }
